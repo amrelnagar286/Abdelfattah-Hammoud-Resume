@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية - م. عبد الفتاح حمود</title>
+    <!-- روابط لأيقونات Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- استيراد خط جوجل -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
+        :root {
+            --primary-color: #6B46C1;
+            --secondary-color: #4A5568;
+            --accent-color: #9F7AEA;
+            --success-color: #48BB78;
+            --warning-color: #ECC94B;
+            --text-color: #2D3748;
+            --light-bg: #F7FAFC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* == Hero Section == */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        /* == Main Sections == */
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* == Experience Items == */
+        .experience-item {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .experience-title {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .experience-company {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .experience-date {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .experience-description {
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        /* == Skills List == */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-tag {
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* == Clients and Other Info == */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .client-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* == Education and Certifications == */
+        .education-card, .certification-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* == Contact Section == */
+        .contact-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            padding: 20px;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* == Lists & Details == */
+        .details-list {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .details-list li {
+            margin-bottom: 8px;
+            line-height: 1.8;
+        }
+
+        .iconed-list {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .iconed-list li {
+            margin: 10px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .iconed-list li i {
+            margin-left: 10px;
+            margin-right: 5px;
+            color: var(--accent-color);
+        }
+
+        /* == Animations == */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.4rem;
+            }
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="hero-section">
+        <h1 class="hero-title">م. عبد الفتاح حمود</h1>
+        <h2 class="hero-subtitle">خبير التحول الرقمي وServiceNow</h2>
+        <p class="hero-text">
+            متخصص في إدارة خدمات تقنية المعلومات والتحول الرقمي (ITSM, ITOM, CSM, SecOps, GRC) 
+            وإدارة مراكز الاتصال، وخبرة واسعة في قيادة الفرق وتحليل الأعمال وضمان الجودة 
+            وتحسين الخدمات.
+        </p>
+    </section>
+
+    <!-- ====== نبذة مختصرة ====== -->
+    <section class="section">
+        <h2 class="section-title">نبذة مختصرة</h2>
+        <p style="margin-bottom: 25px; line-height: 1.8;">
+            قائد تقني استثنائي يتمتع بمهارات عالية في إدارة خدمات تقنية المعلومات وإدارة 
+            عمليات مراكز الاتصال وقياس أداء القوى العاملة. ذو خلفية متميزة في بناء العلاقات
+            والتدريب والعروض التقديمية. يتميز بفهم عميق لاستراتيجيات التحول الرقمي 
+            وقيادة المشاريع. يهتم بالابتكار والعمل الجماعي والتواصل الفعال لضمان نجاح الفريق 
+            وتحقيق أهداف المؤسسة ومواكبة التطورات التقنية السريعة.
+        </p>
+        <ul class="iconed-list">
+            <li><i class="fas fa-check-circle"></i>ماجستير تمهيدي (Pre-MBA) في إدارة الأعمال من جامعة الملك فهد للبترول والمعادن.</li>
+            <li><i class="fas fa-check-circle"></i>بكالوريوس هندسة حاسوب (Computer Engineering) بمعدل 3.52/4 (مرتبة شرف).</li>
+            <li><i class="fas fa-check-circle"></i>عضو في الهيئة السعودية للمهندسين (SCE) وجمعية المهندسين الأردنيين (JEA).</li>
+            <li><i class="fas fa-check-circle"></i>خبرة تزيد عن 15 عاماً في قطاع تقنية المعلومات والتحول الرقمي.</li>
+        </ul>
+    </section>
+
+    <!-- ====== المعلومات الشخصية ====== -->
+    <section class="section">
+        <h2 class="section-title">المعلومات الشخصية</h2>
+        <div class="card">
+            <ul class="details-list">
+                <li><strong>الاسم الكامل:</strong> عبد الفتاح محمد عيسى حمود</li>
+                <li><strong>عنوان الإقامة:</strong> <a href="https://bit.ly/3OetZBc" target="_blank">الرياض، المملكة العربية السعودية (13515)</a></li>
+                <li><strong>الجنسية:</strong> أردني (مولود في السعودية)</li>
+                <li><strong>تاريخ الميلاد (هجري):</strong> 24/12/1403 هـ</li>
+                <li><strong>تاريخ الميلاد (ميلادي):</strong> 01 أكتوبر 1983</li>
+                <li><strong>الحالة الاجتماعية:</strong> متزوج حديثاً</li>
+                <li><strong>رقم الجواز:</strong> S186386</li>
+                <li><strong>رقم الإقامة:</strong> 2518073115</li>
+                <li><strong>المسمى الوظيفي على الإقامة:</strong> مندوب مبيعات (Sales Representative)</li>
+                <li><strong>إمكانية نقل الكفالة:</strong> متاحة فوراً</li>
+                <li><strong>سبب الرغبة في التغيير:</strong> تغيير ظروف المشروع</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ====== اتقان اللغات ====== -->
+    <section class="section">
+        <h2 class="section-title">إتقان اللغات</h2>
+        <div class="card">
+            <ul class="details-list">
+                <li>العربية: لغة الأم</li>
+                <li>الإنجليزية: محترف (قراءة، كتابة، محادثة)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ====== الخبرات المهنية التفصيلية ====== -->
+    <section class="section">
+        <h2 class="section-title">الخبرات المهنية</h2>
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">كبير مستشاري تحليل الأعمال</h3>
+                <span class="experience-company">DXC Technology</span>
+            </div>
+            <p class="experience-date">مارس 2024 - حتى الآن (8+ أشهر)</p>
+            <p class="experience-description">
+                • مسؤول عن دعم العملاء في ServiceNow ITSM، ITOM، وCSM.<br>
+                • توفير خدمات تحليل الأعمال، إدارة أصحاب المصلحة، وملكية المنتجات.<br>
+                • إدارة التحول الرقمي بما يشمل التخطيط الاستراتيجي، إدارة البرامج والمشاريع (PMO)، إدارة علاقات الأعمال (BRM)، والعمارة المؤسسية (Enterprise Architecture).<br>
+                • مسؤولية تحسين تجربة العملاء وضمان الجودة والتحسين المستمر للخدمات.<br>
+                • شارك في نشر حلول ServiceNow لدى مؤسسات مثل بنك الراجحي.
+            </p>
+            <div class="skills-list">
+                <span class="skill-tag">Business Analysis</span>
+                <span class="skill-tag">Digital Transformation</span>
+                <span class="skill-tag">Stakeholder Mgmt</span>
+                <span class="skill-tag">ServiceNow ITSM/ITOM</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">مستشار التحول الرقمي</h3>
+                <span class="experience-company">Unikomm</span>
+            </div>
+            <p class="experience-date">ديسمبر 2021 - فبراير 2024 (2 سنة و3 أشهر)</p>
+            <p class="experience-description">
+                • تقديم خدمات دعم العملاء في ServiceNow (ITSM، ITOM، CSM).<br>
+                • تكليف بأعمال التحليل التجاري، وإدارة أصحاب المصلحة، وخدمات ملكية المنتجات.<br>
+                • التحول الرقمي بما فيها التخطيط الاستراتيجي، وإدارة المشاريع، وإدارة علاقات الأعمال، والعمارة المؤسسية.<br>
+                • تحسين تجربة العملاء (CX)، وضمان الجودة، والتحسين المستمر (CSI).<br>
+                • شارك في العديد من المشاريع مثل حلول ServiceNow لـ مـطـارات القابضة، وزارة الطاقة، وزارة السياحة، هيئة المنشآت الصغيرة والمتوسطة، وغيرها.
+            </p>
+            <div class="skills-list">
+                <span class="skill-tag">ServiceNow</span>
+                <span class="skill-tag">Digital Transformation</span>
+                <span class="skill-tag">Enterprise Architecture</span>
+                <span class="skill-tag">Quality Assurance</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">استشاري حلول الأعمال</h3>
+                <span class="experience-company">Think Barter Network</span>
+            </div>
+            <p class="experience-date">سبتمبر 2020 - نوفمبر 2021 (1 سنة و3 أشهر)</p>
+            <p class="experience-description">
+                • استقطاب العملاء وتوليد الفرص التجارية من مختلف القطاعات للانضمام إلى شبكة Think Barter.<br>
+                • إدارة نظام إدارة علاقات العملاء (CRM) وأنشطة التسويق الرقمي وقنوات الاتصال.<br>
+                • تطوير المحتوى ثنائي اللغة (عربي/إنجليزي) والترجمة، وإدارة مختلف قنوات التسويق مثل الإعلانات المدفوعة، الـSEO، التسويق عبر البريد الإلكتروني، وغيرها.
+            </p>
+            <div class="skills-list">
+                <span class="skill-tag">CRM</span>
+                <span class="skill-tag">Sales & Marketing</span>
+                <span class="skill-tag">Business Development</span>
+            </div>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">استشاري حر (Freelancer)</h3>
+                <span class="experience-company">Freelancer IT Services</span>
+            </div>
+            <p class="experience-date">مايو 2018 - أغسطس 2020 (2 سنة و4 أشهر)</p>
+            <p class="experience-description">
+                • تقديم خدمات دعم تقنية المعلومات عن بعد، والعمل عبر منصات مثل UpWork، TopTal، PeoplePerHour.<br>
+                • اكتساب مهارات إضافية عبر حضور دورات في تكنولوجيا المعلومات والمهارات الشخصية.<br>
+                • استكمال دورة تدريبية في الأمن السيبراني واختبار الاختراق وهندسة الحماية.
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">كبير المهندسين (ITSM)</h3>
+                <span class="experience-company">MidEast Data Systems (Midis Group)</span>
+            </div>
+            <p class="experience-date">مايو 2015 - أبريل 2018 (3 سنوات)</p>
+            <p class="experience-description">
+                • العمل على أنظمة تذاكر ITSM (Assyst v10) وإدارة حوادث تقنية المعلومات والتغييرات والأصول والمشاكل.<br>
+                • تطوير أنظمة IVR وبناء CMDB كامل قبل إطلاق نظام التذاكر، وبناء كتالوج الخدمات بالكامل (خدمات رئيسية وفرعية).<br>
+                • إدارة مستويات الخدمة (SLAs) ومؤشرات الأداء الرئيسية (KPIs) وتوليد التقارير الإنتاجية من نظام التذاكر ونظام IVR.<br>
+                • توفير التدريب للمستخدمين النهائيين في مواضيع مختلفة مرتبطة بإدارة خدمات تقنية المعلومات.
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">كبير المهندسين (Onsite ITSM)</h3>
+                <span class="experience-company">Consolidated Contractors Company (CCC)</span>
+            </div>
+            <p class="experience-date">فبراير 2013 - أكتوبر 2014 (1 سنة و9 أشهر)</p>
+            <p class="experience-description">
+                • مهندس مقيم يعمل على ManageEngine ServiceDesk Plus لدعم مهندسي CCC في طلبات وحوادث تقنية المعلومات في مشروع "Wasit Gas Plant".<br>
+                • إدارة خوادم متعددة (Domain Controllers, Application Servers, Antivirus Servers, SIP Telephony وغيرها) وضمان استمرارية الخدمة.
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">كبير المهندسين (مراكز الاتصال)</h3>
+                <span class="experience-company">Moammar Information Systems (MIS)</span>
+            </div>
+            <p class="experience-date">يونيو 2008 - يونيو 2011 (3 سنوات)</p>
+            <p class="experience-description">
+                • توفير الدعم الفني لمراكز الاتصال وIVR في مشاريع لعملاء مثل الشركة السعودية للكهرباء وبنك سامبا.<br>
+                • إدارة حوادث تقنية المعلومات والتغييرات والأصول (SACM) ومشاكل تقنية المعلومات، وإدارة اتفاقيات مستوى الخدمة (SLAs) ومؤشرات الأداء (KPIs).
+            </p>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">مهندس تقنية معلومات (Onsite)</h3>
+                <span class="experience-company">Schlumberger Middle East</span>
+            </div>
+            <p class="experience-date">أغسطس 2006 - يناير 2008 (1 سنة و6 أشهر)</p>
+            <p class="experience-description">
+                • مهندس مقيم يعمل على نظام BMC Remedy Action Request System (v6.3) لإدارة حوادث وطلبات تقنية المعلومات لدى مهندسي حقول النفط (OFS).<br>
+                • التركيز على إدارة خدمات تقنية المعلومات (ITSM) وتلبية احتياجات المهندسين الميدانيين.
+            </p>
+        </div>
+    </section>
+
+    <!-- ====== أبرز العملاء والمشاريع ====== -->
+    <section class="section">
+        <h2 class="section-title">أبرز العملاء والمشاريع</h2>
+        <p class="section-subtitle">شركات وقطاعات حكومية وخاصة تم تنفيذ مشاريع ServiceNow أو حلول أخرى لديها</p>
+        <div class="clients-grid">
+            <div class="client-item">بنك الراجحي</div>
+            <div class="client-item">مجموعة الراجحي</div>
+            <div class="client-item">مطارَات القابضة (Matarat Holding)</div>
+            <div class="client-item">وزارة الطاقة</div>
+            <div class="client-item">وزارة السياحة</div>
+            <div class="client-item">منشآت (SME Authority)</div>
+            <div class="client-item">التنفـيذي (AlTanfeethi VIP)</div>
+            <div class="client-item">Dawiyat Integrated</div>
+            <div class="client-item">هيئة تقويم التعليم والتدريب</div>
+            <div class="client-item">TETCO (تطوير التقنيات التعليمية)</div>
+            <div class="client-item">جامعة الإمام عبدالرحمن بن فيصل</div>
+            <div class="client-item">الشركة السعودية للكهرباء</div>
+            <div class="client-item">بنك سامبا</div>
+            <div class="client-item">أرامكو</div>
+            <div class="client-item">Johns Hopkins Aramco Healthcare</div>
+            <div class="client-item">Dussur (الاستثمارات الصناعية)</div>
+            <!-- يمكن إضافة بقية القائمة حسب الحاجة -->
+        </div>
+    </section>
+
+    <!-- ====== المهارات والتقنيات ====== -->
+    <section class="section">
+        <h2 class="section-title">المهارات التقنية والاهتمامات</h2>
+        <ul class="iconed-list">
+            <li><i class="fas fa-cogs"></i><strong>ITSM / ITIL v3:</strong> إدارة الحوادث (Incident)، المشاكل (Problem)، التغييرات (Change)، إدارة الأصول (SACM)، إدارة مستوى الخدمة (SLAs، KPIs).</li>
+            <li><i class="fas fa-robot"></i><strong>الأتمتة والتحول الرقمي:</strong> برمجة الواجهات (APIs)، إدارة العمليات الرقمية، ونشر منصات التحول.</li>
+            <li><i class="fas fa-database"></i><strong>قواعد البيانات والبيانات الضخمة (Big Data):</strong> Hadoop وDistributed Computing وAnalytics وAI.</li>
+            <li><i class="fas fa-tools"></i><strong>أدوات ServiceNow:</strong> ITSM، ITOM، CSM، SecOps، GRC، Asset Management، Release Management، وغيرها.</li>
+            <li><i class="fas fa-network-wired"></i><strong>مراكز البيانات:</strong> إدارة وتشغيل الداتا سنتر وعملياتها، وإدارة الخوادم، والشبكات الافتراضية.</li>
+            <li><i class="fas fa-shield-alt"></i><strong>الأمن السيبراني:</strong> اختبار الاختراق والحماية، الاستجابة للحوادث الأمنية، مشاركة في دورات الأمن السيبراني.</li>
+            <li><i class="fas fa-comments"></i><strong>اللغات:</strong> العربية (لغة أم)، الإنجليزية (احترافية كاملة).</li>
+        </ul>
+    </section>
+
+    <!-- ====== منهجيات إدارة المشاكل التقنية (Problem Management) ====== -->
+    <section class="section">
+        <h2 class="section-title">منهجيات إدارة المشاكل التقنية (Problem Management)</h2>
+        <p>
+            وفقاً لإطار ITIL®، هناك سبع تقنيات أو منهجيات أساسية يمكن الاستفادة منها لإدارة المشاكل:
+        </p>
+        <ol class="details-list" style="margin-top: 20px;">
+            <li><strong>Brainstorming</strong> (العصف الذهني)</li>
+            <li><strong>Ishikawa diagrams</strong> (مخطط عظمة السمكة)</li>
+            <li><strong>Kepner-Tregoe</strong> (تحليل السبب الجذري)</li>
+            <li><strong>Fault Tree Analysis</strong> (تحليل شجرة العطل)</li>
+            <li><strong>Component Failure Impact Analysis</strong> (تحليل تأثير فشل المكونات)</li>
+            <li><strong>Service Outage Analysis</strong> (تحليل انقطاع الخدمة)</li>
+            <li><strong>Post-Implementation & Major Problem Review</strong> (مراجعة المشكلات الرئيسية)</li>
+        </ol>
+        <p style="margin-top: 15px;">
+            تشمل هذه التقنيات ما يُسمى بالعناصر الأربعة (4Ps) التي تساهم في صنع المشكلة أو حلها:
+            الأشخاص (People)، والعمليات (Processes)، والمنتجات (Products)، والشركاء (Partners).
+        </p>
+    </section>
+
+    <!-- ====== الرؤية الشخصية ====== -->
+    <section class="section">
+        <h2 class="section-title">الرؤية الشخصية</h2>
+        <div class="card">
+            <p style="line-height: 1.8;">
+                أؤمن ببيئة عمل جماعية تعزز الابتكار من خلال التعاون والتشغيل البيني بين جميع أعضاء الفريق، مما يقودنا جميعًا إلى مسار مهني ناجح. كما أؤمن بأن العمل الجاد والإخلاص هو أفضل طريقة للارتقاء بمسيرتي المهنية نحو الاتجاه الصحيح. ما يستطيع إنجازه شخص واحد يمكن للآخر بالتأكيد إنجازه. الاختلاف الحقيقي هو كيفية توظيف عقولنا للابتكار والتعاون مع أعضاء الفريق لتحقيق الأهداف وتجاوز التوقعات. أؤمن بأن المهنيين الشباب يمكنهم تحقيق المزيد إذا تم توفير بيئة تدريبية وتوجيهية مناسبة تستهدف تطويرهم المهني.
+            </p>
+        </div>
+    </section>
+
+    <!-- ====== الشهادات والدورات التدريبية ====== -->
+    <section class="section">
+        <h2 class="section-title">الشهادات والدورات التدريبية</h2>
+        <div class="grid-container">
+            <div class="certification-card">
+                <h3>ServiceNow Certified System Administrator (CSA)</h3>
+                <p>رقم الشهادة: 23747061</p>
+                <p>تاريخ الإصدار: 19 نوفمبر 2022 (سارية لمدة سنتين)</p>
+                <p>المزود: ServiceNow</p>
+            </div>
+            <div class="certification-card">
+                <h3>Project Management Professional (PMP) Preparation</h3>
+                <p>تاريخ الإصدار: ديسمبر 2014</p>
+                <p>المزود: Orbits Institute for Training</p>
+            </div>
+            <div class="certification-card">
+                <h3>Primavera P6</h3>
+                <p>إطار زمني: 3 أسابيع</p>
+            </div>
+            <div class="certification-card">
+                <h3>Aspect Unified IP v6.6</h3>
+                <p>تاريخ الإصدار: يناير 2010</p>
+                <p>المزود: Aspect Software Inc. Singapore</p>
+            </div>
+            <div class="certification-card">
+                <h3>دورة الأمن السيبراني (اختبار الاختراق)</h3>
+                <p>الجهة: جامعة الحسين التقنية HTU</p>
+                <p>المحتوى: جمع المعلومات، الفحص، تقييم الثغرات، الاستغلال، وغيرها.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== التعليم والمؤهلات الأكاديمية ====== -->
+    <section class="section">
+        <h2 class="section-title">المؤهلات الأكاديمية</h2>
+        <div class="education-card">
+            <h3>جامعة الملك فهد للبترول والمعادن (KFUPM)</h3>
+            <p>بكالوريوس هندسة حاسب آلي (Computer Engineering)</p>
+            <p>المعدل التراكمي: 3.52/4.00 (مرتبة الشرف)</p>
+            <p>الفترة: 2000 - 2005</p>
+        </div>
+        <div class="education-card">
+            <h3>دورات تحضيرية لدرجة الماجستير (Pre-MBA)</h3>
+            <p>تخصصات: نظم معلومات إدارية، تسويق، محاسبة مالية، اقتصاد كلي/جزئي</p>
+            <p>الفترة: 2005 - 2007 (طالب جزئي)</p>
+        </div>
+    </section>
+
+    <!-- ====== الاهتمامات الشخصية ====== -->
+    <section class="section">
+        <h2 class="section-title">الاهتمامات الشخصية</h2>
+        <div class="card">
+            <ul class="details-list">
+                <li>قراءة كتب التنمية الذاتية وتطوير الشخصية مثل "العادات السبع للناس الأكثر فعالية".</li>
+                <li>الطبخ وفنون الطهي.</li>
+                <li>متابعة أحدث التقنيات والابتكارات في مجال تكنولوجيا المعلومات.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ====== معلومات الراتب والتوظيف ====== -->
+    <section class="section">
+        <h2 class="section-title">معلومات الراتب وفرص التوظيف</h2>
+        <div class="card">
+            <ul class="details-list">
+                <li><strong>الراتب الحالي:</strong> **** SAR شهرياً</li>
+                <li><strong>الراتب المتوقع:</strong> **** SAR شهرياً</li>
+                <li><strong>جاهزية الانضمام:</strong> فورية / لا يوجد فترة إشعار</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ====== قسم التواصل ====== -->
+    <section class="contact-section">
+        <h2 class="section-title" style="color: white;">معلومات التواصل</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <i class="fas fa-phone contact-icon"></i>
+                <p>الهاتف (1): +966 500323691 (السعودية)</p>
+                <p>الهاتف (2): +962 790751430 (الأردن)</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope contact-icon"></i>
+                <p>Email (1): <a style="color: white;" href="mailto:Abed.Hammoud5130@alum.kfupm.edu.sa">Abed.Hammoud5130@alum.kfupm.edu.sa</a></p>
+                <p>Email (2): <a style="color: white;" href="mailto:afmh83@gmail.com">afmh83@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt contact-icon"></i>
+                <p>الرياض، المملكة العربية السعودية</p>
+                <p><a style="color: white;" href="https://www.linkedin.com/in/abdulfattahhamoud" target="_blank">
+                    <i class="fab fa-linkedin"></i> الملف الشخصي على LinkedIn
+                </a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DXC Banner Example (Optional) ===== -->
+    <section class="section" style="text-align:center;">
+        <img src="https://i.ibb.co/zhHy5Rt/dxc-banner-sample.jpg" alt="DXC Technology Banner" style="max-width: 100%; border-radius: 15px;" />
+        <p style="margin-top: 10px;">
+            <strong>Delivering eXcellence for our Customers and Colleagues</strong>
+        </p>
+    </section>
+
+</body>
+</html>
